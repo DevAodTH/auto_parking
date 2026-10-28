@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1",
+    "name": "Anan Srisuk",
+    "email": "anan.s@company.com",
+    "role_id": "superadmin",
+    "status": "active"
+  },
+  {
+    "id": "2",
+    "name": "Chaiwat Deephrom",
+    "email": "chaiwat.d@company.com",
+    "role_id": "admin",
+    "status": "active"
+  }
+]

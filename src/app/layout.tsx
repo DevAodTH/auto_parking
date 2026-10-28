@@ -1,12 +1,11 @@
-import "./globals.css";
+import "@/app/globals.css";
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html>
+      <body className="h-dvh w-screen flex flex-col overflow-hidden m-0">
+        {children}
+      </body>
     </html>
   );
 }
