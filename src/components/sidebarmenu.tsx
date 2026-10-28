@@ -240,10 +240,16 @@ function SidebarFooterSection({ open }: { open: boolean }) {
           </DropdownMenuHeader>
 
           <DropdownMenuSeparator className="my-0.5" />
-          <DropdownMenuItem href="/account">
+          <DropdownMenuItem 
+          href="/account"
+          className="data-[hovered]:bg-gray-700 data-[hovered]:text-white"
+          >
             My Profile
           </DropdownMenuItem>
-          <DropdownMenuItem href="/login">
+          <DropdownMenuItem 
+          href="/login"
+          className="data-[hovered]:bg-gray-700 data-[hovered]:text-white"
+          >
             Log out
           </DropdownMenuItem>
         </DropdownMenuContent>
