@@ -11,7 +11,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-  SidebarFooter
+  SidebarFooter,
 } from "@/components/tailgrids/core/sidebar";
 import {
   Layers2,
@@ -22,7 +22,7 @@ import {
   ChevronBothDirection,
   Page,
   MusicList2,
-  User2
+  User2,
 } from "@tailgrids/icons";
 
 import {
@@ -31,7 +31,7 @@ import {
   DropdownMenuHeader,
   DropdownMenuItem,
   DropdownMenuSeparator,
-  DropdownMenuTrigger
+  DropdownMenuTrigger,
 } from "@/components/tailgrids/core/dropdown";
 
 import { useState } from "react";
@@ -42,7 +42,11 @@ import Link from "next/link";
 import user from "@/db/user.json";
 import { usePathname } from "next/navigation";
 
-export default function SidebarVariantsPreview({children,}: {children: React.ReactNode;}) {
+export default function SidebarVariantsPreview({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [variant] = useState<"sidebar" | "floating" | "inset">("sidebar");
 
   const [open, setOpen] = React.useState<boolean>(true);
@@ -55,9 +59,17 @@ export default function SidebarVariantsPreview({children,}: {children: React.Rea
             variant={variant}
             className="h-full text-white p-2 bg-slate-900 select-none"
           >
-            <SidebarHeader className="flex-row items-center gap-2">
-              
-              <MusicList2 /><h2 className="text-lg font-bold">AUTO PARKING</h2>
+            <SidebarHeader className="flex flex-row items-center gap-3 p-4 w-full">
+                <div className="flex h-12 w-12 items-center justify-center">
+                  <MusicList2 className="h-8 w-8"/>
+                </div>
+                
+              <div className="flex flex-col text-left">
+                <span className="text-base font-bold text-slate-500 leading-tight">
+                  ParkPlan
+                </span>
+                <span className="text-sm text-slate-500">สาขาสยาม</span>
+              </div>
             </SidebarHeader>
 
             <SidebarContent className="px-2">
@@ -68,24 +80,36 @@ export default function SidebarVariantsPreview({children,}: {children: React.Rea
                   <SidebarMenu>
                     <SidebarMenuItem>
                       <Link
-                          href="/dashboard"
-                          className={pathname === "/dashboard" 
-                          ? "pointer-events-none flex items-center justify-between gap-3" 
-                          : "flex items-center justify-between gap-3 "}
+                        href="/dashboard"
+                        className={
+                          pathname === "/dashboard"
+                            ? "pointer-events-none flex items-center justify-between gap-3"
+                            : "flex items-center justify-between gap-3 "
+                        }
+                      >
+                        <SidebarMenuButton
+                          className={
+                            pathname === "/dashboard" ? "bg-teal-500" : ""
+                          }
                         >
-                      <SidebarMenuButton className={pathname === "/dashboard" ? "bg-teal-500" : ""}>                        
                           <PieChart1 /> <span>Dashboard</span>
-                      </SidebarMenuButton>
+                        </SidebarMenuButton>
                       </Link>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <Link
                         href="/parking-layout"
-                        className={pathname === "/parking-layout" 
-                          ? "pointer-events-none flex items-center justify-between gap-3 " 
-                          : "flex items-center justify-between gap-3 "}
+                        className={
+                          pathname === "/parking-layout"
+                            ? "pointer-events-none flex items-center justify-between gap-3 "
+                            : "flex items-center justify-between gap-3 "
+                        }
                       >
-                        <SidebarMenuButton className={pathname === "/parking-layout" ? "bg-teal-500" : ""}>
+                        <SidebarMenuButton
+                          className={
+                            pathname === "/parking-layout" ? "bg-teal-500" : ""
+                          }
+                        >
                           <Layers2 /> <span>Parking Layouts</span>
                         </SidebarMenuButton>
                       </Link>
@@ -93,11 +117,19 @@ export default function SidebarVariantsPreview({children,}: {children: React.Rea
                     <SidebarMenuItem>
                       <Link
                         href="/financial-overview"
-                        className={pathname === "/financial-overview"
-                          ? "pointer-events-none flex items-center justify-between gap-3 " 
-                          : "flex items-center justify-between gap-3 "}
+                        className={
+                          pathname === "/financial-overview"
+                            ? "pointer-events-none flex items-center justify-between gap-3 "
+                            : "flex items-center justify-between gap-3 "
+                        }
                       >
-                        <SidebarMenuButton className={pathname === "/financial-overview" ? "bg-teal-500" : ""}>
+                        <SidebarMenuButton
+                          className={
+                            pathname === "/financial-overview"
+                              ? "bg-teal-500"
+                              : ""
+                          }
+                        >
                           <BarChartSquare /> <span>Financial Overview</span>
                         </SidebarMenuButton>
                       </Link>
@@ -105,11 +137,17 @@ export default function SidebarVariantsPreview({children,}: {children: React.Rea
                     <SidebarMenuItem>
                       <Link
                         href="/activity-log"
-                        className={pathname === "/activity-log" 
-                          ? "pointer-events-none flex items-center justify-between gap-3 " 
-                          : "flex items-center justify-between gap-3 "}
+                        className={
+                          pathname === "/activity-log"
+                            ? "pointer-events-none flex items-center justify-between gap-3 "
+                            : "flex items-center justify-between gap-3 "
+                        }
                       >
-                        <SidebarMenuButton className={pathname === "/activity-log" ? "bg-teal-500" : ""}>
+                        <SidebarMenuButton
+                          className={
+                            pathname === "/activity-log" ? "bg-teal-500" : ""
+                          }
+                        >
                           <RefreshCircle1Clockwise /> <span>Activity Log</span>
                         </SidebarMenuButton>
                       </Link>
@@ -117,11 +155,17 @@ export default function SidebarVariantsPreview({children,}: {children: React.Rea
                     <SidebarMenuItem>
                       <Link
                         href="/heat-map"
-                        className={pathname === "/heat-map" 
-                          ? "pointer-events-none flex items-center justify-between gap-3 " 
-                          : "flex items-center justify-between gap-3 "}
+                        className={
+                          pathname === "/heat-map"
+                            ? "pointer-events-none flex items-center justify-between gap-3 "
+                            : "flex items-center justify-between gap-3 "
+                        }
                       >
-                        <SidebarMenuButton className={pathname === "/heat-map" ? "bg-teal-500" : ""}>
+                        <SidebarMenuButton
+                          className={
+                            pathname === "/heat-map" ? "bg-teal-500" : ""
+                          }
+                        >
                           <Fire /> <span>Parking Heat Map</span>
                         </SidebarMenuButton>
                       </Link>
@@ -136,40 +180,56 @@ export default function SidebarVariantsPreview({children,}: {children: React.Rea
                   <SidebarMenu>
                     <SidebarMenuItem>
                       <Link
-                          href="/users"
-                          className={pathname === "/users" 
-                          ? "pointer-events-none flex items-center justify-between gap-3 " 
-                          : "flex items-center justify-between gap-3 "}
+                        href="/users"
+                        className={
+                          pathname === "/users"
+                            ? "pointer-events-none flex items-center justify-between gap-3 "
+                            : "flex items-center justify-between gap-3 "
+                        }
+                      >
+                        <SidebarMenuButton
+                          className={pathname === "/users" ? "bg-teal-500" : ""}
                         >
-                      <SidebarMenuButton className={pathname === "/users" ? "bg-teal-500" : ""}>                      
                           <User2 /> <span>User & Permissions</span>
-                      </SidebarMenuButton>
+                        </SidebarMenuButton>
                       </Link>
                     </SidebarMenuItem>
 
                     <SidebarMenuItem>
                       <Link
-                          href="/settings"
-                          className={pathname === "/settings" 
-                          ? "pointer-events-none flex items-center justify-between gap-3 " 
-                          : "flex items-center justify-between gap-3 "}
+                        href="/settings"
+                        className={
+                          pathname === "/settings"
+                            ? "pointer-events-none flex items-center justify-between gap-3 "
+                            : "flex items-center justify-between gap-3 "
+                        }
+                      >
+                        <SidebarMenuButton
+                          className={
+                            pathname === "/settings" ? "bg-teal-500" : ""
+                          }
                         >
-                      <SidebarMenuButton className={pathname === "/settings" ? "bg-teal-500" : ""}>                      
                           <User2 /> <span>System Setting</span>
-                      </SidebarMenuButton>
+                        </SidebarMenuButton>
                       </Link>
                     </SidebarMenuItem>
 
                     <SidebarMenuItem>
                       <Link
-                          href="/audit-logs"
-                          className={pathname === "/audit-logs" 
-                          ? "pointer-events-none flex items-center justify-between gap-3 " 
-                          : "flex items-center justify-between gap-3 "}
+                        href="/audit-logs"
+                        className={
+                          pathname === "/audit-logs"
+                            ? "pointer-events-none flex items-center justify-between gap-3 "
+                            : "flex items-center justify-between gap-3 "
+                        }
+                      >
+                        <SidebarMenuButton
+                          className={
+                            pathname === "/audit-logs" ? "bg-teal-500" : ""
+                          }
                         >
-                      <SidebarMenuButton className={pathname === "/audit-logs" ? "bg-teal-500" : ""}>                       
                           <Page /> <span>Audit Logs</span>
-                      </SidebarMenuButton>
+                        </SidebarMenuButton>
                       </Link>
                     </SidebarMenuItem>
                   </SidebarMenu>
@@ -240,15 +300,15 @@ function SidebarFooterSection({ open }: { open: boolean }) {
           </DropdownMenuHeader>
 
           <DropdownMenuSeparator className="my-0.5" />
-          <DropdownMenuItem 
-          href="/account"
-          className="data-[hovered]:bg-gray-700 data-[hovered]:text-white"
+          <DropdownMenuItem
+            href="/account"
+            className="data-[hovered]:bg-gray-700 data-[hovered]:text-white"
           >
             My Profile
           </DropdownMenuItem>
-          <DropdownMenuItem 
-          href="/login"
-          className="data-[hovered]:bg-gray-700 data-[hovered]:text-white"
+          <DropdownMenuItem
+            href="/login"
+            className="data-[hovered]:bg-gray-700 data-[hovered]:text-white"
           >
             Log out
           </DropdownMenuItem>
@@ -257,4 +317,3 @@ function SidebarFooterSection({ open }: { open: boolean }) {
     </SidebarFooter>
   );
 }
- 
