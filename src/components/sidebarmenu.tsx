@@ -62,7 +62,7 @@ export default function SidebarVariantsPreview({children,}: {children: React.Rea
 
             <SidebarContent className="px-2">
               <SidebarGroup>
-                <SidebarGroupLabel>Overview & Reports</SidebarGroupLabel>
+                <SidebarGroupLabel>เมนูหลัก</SidebarGroupLabel>
 
                 <SidebarGroupContent>
                   <SidebarMenu>
@@ -131,7 +131,7 @@ export default function SidebarVariantsPreview({children,}: {children: React.Rea
               </SidebarGroup>
 
               <SidebarGroup>
-                <SidebarGroupLabel>System Admin</SidebarGroupLabel>
+                <SidebarGroupLabel>จัดการระบบ</SidebarGroupLabel>
                 <SidebarGroupContent>
                   <SidebarMenu>
                     <SidebarMenuItem>
