@@ -8,10 +8,9 @@ import {
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
-  SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-  SidebarFooter,
+  SidebarFooter
 } from "@/components/tailgrids/core/sidebar";
 import {
   Layers2,
@@ -23,6 +22,7 @@ import {
   Page,
   MusicList2,
   User2,
+  Layout14
 } from "@tailgrids/icons";
 
 import {
@@ -31,7 +31,7 @@ import {
   DropdownMenuHeader,
   DropdownMenuItem,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
+  DropdownMenuTrigger
 } from "@/components/tailgrids/core/dropdown";
 
 import { useState } from "react";
@@ -42,11 +42,7 @@ import Link from "next/link";
 import user from "@/db/user.json";
 import { usePathname } from "next/navigation";
 
-export default function SidebarVariantsPreview({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function SidebarVariantsPreview({children,}: {children: React.ReactNode;}) {
   const [variant] = useState<"sidebar" | "floating" | "inset">("sidebar");
 
   const [open, setOpen] = React.useState<boolean>(true);
@@ -60,10 +56,10 @@ export default function SidebarVariantsPreview({
             className="h-full text-white p-2 bg-slate-900 select-none"
           >
             <SidebarHeader className="flex flex-row items-center gap-3 p-4 w-full">
-                <div className="flex h-12 w-12 items-center justify-center">
-                  <MusicList2 className="h-8 w-8"/>
-                </div>
-                
+              <div className="flex h-12 w-12 items-center justify-center">
+                <MusicList2 className="h-8 w-8" />
+              </div>
+
               <div className="flex flex-col text-left">
                 <span className="text-base font-bold text-slate-500 leading-tight">
                   ParkPlan
@@ -83,17 +79,14 @@ export default function SidebarVariantsPreview({
                         href="/dashboard"
                         className={
                           pathname === "/dashboard"
-                            ? "pointer-events-none flex items-center justify-between gap-3"
-                            : "flex items-center justify-between gap-3 "
+                            ? "pointer-events-none flex items-center justify-between gap-3 w-full bg-teal-500 rounded-md p-2 text-sm font-medium text-white transition-colors"
+                            : "flex items-center justify-between gap-3 w-full rounded-md p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
                         }
                       >
-                        <SidebarMenuButton
-                          className={
-                            pathname === "/dashboard" ? "bg-teal-500" : ""
-                          }
-                        >
-                          <PieChart1 /> <span>Dashboard</span>
-                        </SidebarMenuButton>
+                        <div className="flex items-center gap-3">
+                          <PieChart1 />
+                          <span>Dashboard</span>
+                        </div>
                       </Link>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
@@ -101,17 +94,14 @@ export default function SidebarVariantsPreview({
                         href="/parking-layout"
                         className={
                           pathname === "/parking-layout"
-                            ? "pointer-events-none flex items-center justify-between gap-3 "
-                            : "flex items-center justify-between gap-3 "
+                            ? "pointer-events-none flex items-center justify-between gap-3 w-full bg-teal-500 rounded-md p-2 text-sm font-medium text-white transition-colors"
+                            : "flex items-center justify-between gap-3 w-full rounded-md p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
                         }
                       >
-                        <SidebarMenuButton
-                          className={
-                            pathname === "/parking-layout" ? "bg-teal-500" : ""
-                          }
-                        >
-                          <Layers2 /> <span>Parking Layouts</span>
-                        </SidebarMenuButton>
+                        <div className="flex items-center gap-3">
+                          <Layers2 />
+                          <span>Parking Layouts</span>
+                        </div>
                       </Link>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
@@ -119,19 +109,14 @@ export default function SidebarVariantsPreview({
                         href="/financial-overview"
                         className={
                           pathname === "/financial-overview"
-                            ? "pointer-events-none flex items-center justify-between gap-3 "
-                            : "flex items-center justify-between gap-3 "
+                            ? "pointer-events-none flex items-center justify-between gap-3 w-full bg-teal-500 rounded-md p-2 text-sm font-medium text-white transition-colors"
+                            : "flex items-center justify-between gap-3 w-full rounded-md p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
                         }
                       >
-                        <SidebarMenuButton
-                          className={
-                            pathname === "/financial-overview"
-                              ? "bg-teal-500"
-                              : ""
-                          }
-                        >
-                          <BarChartSquare /> <span>Financial Overview</span>
-                        </SidebarMenuButton>
+                        <div className="flex items-center gap-3">
+                          <BarChartSquare />
+                          <span>Financial Overview</span>
+                        </div>
                       </Link>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
@@ -139,17 +124,14 @@ export default function SidebarVariantsPreview({
                         href="/activity-log"
                         className={
                           pathname === "/activity-log"
-                            ? "pointer-events-none flex items-center justify-between gap-3 "
-                            : "flex items-center justify-between gap-3 "
+                            ? "pointer-events-none flex items-center justify-between gap-3 w-full bg-teal-500 rounded-md p-2 text-sm font-medium text-white transition-colors"
+                            : "flex items-center justify-between gap-3 w-full rounded-md p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
                         }
                       >
-                        <SidebarMenuButton
-                          className={
-                            pathname === "/activity-log" ? "bg-teal-500" : ""
-                          }
-                        >
-                          <RefreshCircle1Clockwise /> <span>Activity Log</span>
-                        </SidebarMenuButton>
+                        <div className="flex items-center gap-3">
+                          <RefreshCircle1Clockwise />
+                          <span>Activity Log</span>
+                        </div>
                       </Link>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
@@ -157,17 +139,14 @@ export default function SidebarVariantsPreview({
                         href="/heat-map"
                         className={
                           pathname === "/heat-map"
-                            ? "pointer-events-none flex items-center justify-between gap-3 "
-                            : "flex items-center justify-between gap-3 "
+                            ? "pointer-events-none flex items-center justify-between gap-3 w-full bg-teal-500 rounded-md p-2 text-sm font-medium text-white transition-colors"
+                            : "flex items-center justify-between gap-3 w-full rounded-md p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
                         }
                       >
-                        <SidebarMenuButton
-                          className={
-                            pathname === "/heat-map" ? "bg-teal-500" : ""
-                          }
-                        >
-                          <Fire /> <span>Parking Heat Map</span>
-                        </SidebarMenuButton>
+                        <div className="flex items-center gap-3">
+                          <Fire />
+                          <span>Parking Heat Map</span>
+                        </div>
                       </Link>
                     </SidebarMenuItem>
                   </SidebarMenu>
@@ -183,15 +162,14 @@ export default function SidebarVariantsPreview({
                         href="/users"
                         className={
                           pathname === "/users"
-                            ? "pointer-events-none flex items-center justify-between gap-3 "
-                            : "flex items-center justify-between gap-3 "
+                            ? "pointer-events-none flex items-center justify-between gap-3 w-full bg-teal-500 rounded-md p-2 text-sm font-medium text-white transition-colors"
+                            : "flex items-center justify-between gap-3 w-full rounded-md p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
                         }
                       >
-                        <SidebarMenuButton
-                          className={pathname === "/users" ? "bg-teal-500" : ""}
-                        >
-                          <User2 /> <span>User & Permissions</span>
-                        </SidebarMenuButton>
+                        <div className="flex items-center gap-3">
+                          <User2 />
+                          <span>User & Permissions</span>
+                        </div>
                       </Link>
                     </SidebarMenuItem>
 
@@ -200,17 +178,14 @@ export default function SidebarVariantsPreview({
                         href="/settings"
                         className={
                           pathname === "/settings"
-                            ? "pointer-events-none flex items-center justify-between gap-3 "
-                            : "flex items-center justify-between gap-3 "
+                            ? "pointer-events-none flex items-center justify-between gap-3 w-full bg-teal-500 rounded-md p-2 text-sm font-medium text-white transition-colors"
+                            : "flex items-center justify-between gap-3 w-full rounded-md p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
                         }
                       >
-                        <SidebarMenuButton
-                          className={
-                            pathname === "/settings" ? "bg-teal-500" : ""
-                          }
-                        >
-                          <User2 /> <span>System Setting</span>
-                        </SidebarMenuButton>
+                        <div className="flex items-center gap-3">
+                          <Layout14 />
+                          <span>System Setting</span>
+                        </div>
                       </Link>
                     </SidebarMenuItem>
 
@@ -219,17 +194,14 @@ export default function SidebarVariantsPreview({
                         href="/audit-logs"
                         className={
                           pathname === "/audit-logs"
-                            ? "pointer-events-none flex items-center justify-between gap-3 "
-                            : "flex items-center justify-between gap-3 "
+                            ? "pointer-events-none flex items-center justify-between gap-3 w-full bg-teal-500 rounded-md p-2 text-sm font-medium text-white transition-colors"
+                            : "flex items-center justify-between gap-3 w-full rounded-md p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
                         }
                       >
-                        <SidebarMenuButton
-                          className={
-                            pathname === "/audit-logs" ? "bg-teal-500" : ""
-                          }
-                        >
-                          <Page /> <span>Audit Logs</span>
-                        </SidebarMenuButton>
+                        <div className="flex items-center gap-3">
+                          <Page />
+                          <span>Audit Logs</span>
+                        </div>
                       </Link>
                     </SidebarMenuItem>
                   </SidebarMenu>
